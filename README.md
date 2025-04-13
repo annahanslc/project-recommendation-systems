@@ -53,30 +53,41 @@ No user has reviewed the same business more than once.
 
 To improve computational efficiency, I reduced the dataset to a subset containing 10,001 users. This subset was constructed by randomly sampling 10,000 user IDs from the Utah subset and appending my own user ID (associated with my Google reviews), for a total of 10,001 users. All review records were then filtered to include only those associated with these 10,001 users.
 
-The Utah 10,001 users subset has:
+The Utah 10,001 users subset consists of:
   - 305,262 reviews
   - 10,001 unique users
   - 29,040 unique businesses
 
 # User-Based Collaborative Filtering
 
-I implemented a user-based collaborative filtering algorithm using cosine similarity to measure how similar users are based on their past reviews. 
+For the user-based recommender function, I implemented a user-based collaborative filtering algorithm using cosine similarity to measure how similar users are based on their past reviews. 
 
 My recommender function will first check if the a exists in the dataset, since I am only able to find similar users if the user in question has made reviews in the past. If they have reviews in the dataset, then the following steps are taken:
 
   1. Identiy their top 50 most similar users, excluding themselves.
-  2. For each similar user, the function retrieves their favorite businesses. Where favorite is defined as having rated those businesses a 4 or higher.
-  3. Any businsses that the target user has already reviewed are filted out.
-  4. The remaining favorites are combined together, where if multiple users rated the same business, their ratings are added together to represent aggregated popularity.
+  2. For each similar user, retrieve their favorite businesses, where favorite is defined as having rated those businesses a 4 or higher.
+  3. Any businsses that the target user has already reviewed are not added to the list of favorites.
+  4. The list of favorties are combined together, where if multiple users rated the same business, their ratings are added together to represent aggregated popularity.
   5. The favorites are then sorted by the highest aggregate ratings.
   6. The function will return the top n_rec number of businesses as the final recommendations.
 
 If the user is not found in the dataset, then the function falls back on a popularity-based list of recommendations. All businesses are ranking by a combination of their average rating and the number of reviews.
 
 
-
 # Item-Based Collaborative Filtering
 
+For the item-based recommender function, I found the cosine similarity between businesses' ratings to find places that are similar to the ones that a user has rated highly.
+
+Here is a breakdown of how the function works:
+
+  1. Idenfity the user's favorite places, which are those rated a 4 or higher.
+  2. For each one of the user's favorite places, the function retrieves similar businesses using the item-to-item cosine similarity matrix.
+  3. If the user has not already rated them, then the businesses are added to a list of recommendations.
+  4. The recommendations are then sorted by total similarity score and their average rating
+  5. Businesses with an average star rating of 3.5 are removed from the list.
+  6. The top n_recs recommendations are taken from the top of the list.
+
+If the user has no prior reviews, no favorite places (under 4 stars), or there are not enough qualifying recommendations using the above method, then the results are supplemented with a fallback list of popular businesses. Again, the popular businesses are determined by the number of reviews and their average rating. These popular businesses are added to the end of the list of recommendations to ensure that the user always receives the number of suggestions that they asked for. 
 
 # Singular Value Decomposition
 
