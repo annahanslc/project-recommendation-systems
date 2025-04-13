@@ -9,11 +9,26 @@ No more guesswork. Just the right place, every time.
 # Table of Contents
 
 1. [About the data](#about-the-data)
-2. Collaborative filtering: user-based
-3. Collaborative filtering: item-based
-4. SVD
-5. Console application
-6. Next Steps
-7. References
+2. [Collaborative filtering: user-based](#user-based-collaborative-filtering)
+3. [Collaborative filtering: item-based](#item-based-collaborative-filtering)
+4. [SVD (Singular Value Decomposition)](#singular-value-decomposition)
+5. [Console application](#console-application)
+6. [Next Steps](#next-steps)
+7. [References](#references)
 
-# About the data 
+# About the Data 
+
+
+# User-Based Collaborative Filtering
+
+
+# Item-Based Collaborative Filtering
+
+
+# Singular Value Decomposition
+
+
+# Console Application
+
+
+# References
