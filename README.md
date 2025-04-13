@@ -6,6 +6,16 @@ That's the idea behind my recommender system for local businesses: a personalize
 
 No more guesswork. Just the right place, every time.
 
+# Project Objective
+
+My console application prompts you to enter a user_id and the number of recommendations you'd like to receive. You can then choose from three recommendation methods:
+
+- User-based - suggests places liked by other users with similar tastes.
+- Item-based - suggests places similar to ones you have rated highly.
+- SVD-based - uses patterns in your past reviews to discover hidden preferences and suggest places that you might like.
+
+Based on your selection, the application will generate and return the requested number of personalized business recommendations.
+
 # Table of Contents
 
 1. [About the data](#about-the-data)
@@ -35,7 +45,7 @@ For this project, I focused on reviews from the state of Utah, where I grew up. 
 
 The Utah original k-core subset has:
   - 4,858,771 reviews
-  - 160,776 unique users
+  - 160,766 unique users
   - 34,689 unique businesses
 No user has reviewed the same business more than once. 
 
@@ -50,6 +60,18 @@ The Utah 10,001 users subset has:
 
 # User-Based Collaborative Filtering
 
+I implemented a user-based collaborative filtering algorithm using cosine similarity to measure how similar users are based on their past reviews. 
+
+My recommender function will first check if the a exists in the dataset, since I am only able to find similar users if the user in question has made reviews in the past. If they have reviews in the dataset, then the following steps are taken:
+
+  1. Identiy their top 50 most similar users, excluding themselves.
+  2. For each similar user, the function retrieves their favorite businesses. Where favorite is defined as having rated those businesses a 4 or higher.
+  3. Any businsses that the target user has already reviewed are filted out.
+  4. The remaining favorites are combined together, where if multiple users rated the same business, their ratings are added together to represent aggregated popularity.
+  5. The favorites are then sorted by the highest aggregate ratings.
+  6. The function will return the top n_rec number of businesses as the final recommendations.
+
+If the user is not found in the dataset, then the function falls back on a popularity-based list of recommendations. All businesses are ranking by a combination of their average rating and the number of reviews.
 
 
 
