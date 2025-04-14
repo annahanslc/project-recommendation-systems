@@ -63,6 +63,13 @@ The Utah 10,001 users subset consists of:
   - 10,001 unique users
   - 29,040 unique businesses
 
+<img src="https://github.com/user-attachments/assets/57263b64-4c9a-4b47-ab5b-93bc34aa9daf" width="400">
+<img src="https://github.com/user-attachments/assets/3edfcb8b-0ea8-451b-b23c-1d027748f6df" width="400">
+
+The above histograms of the 10,001-user subset show that the distribution of reviews per user is consistent with the original dataset and that all users have reviewed at least 10 businesses, maintaining the user-side k-core requirement. However, due to subsetting by users, the distribution of reviews per business has changed, and some businesses no longer meet the k-core threshold.
+
+For the purposes of this project, I have chosen not to filter out businesses with fewer reviews in order to retain item diversity and minimize loss of information. However, I recognize this as a limitation and plan to address it in future steps — either by reapplying item-side k-core filtering or using techniques that better handle long-tail sparsity.
+
 # User-Based Collaborative Filtering
 
 For the user-based recommender function, I implemented a user-based collaborative filtering algorithm using cosine similarity to measure how similar users are based on their past reviews. 
