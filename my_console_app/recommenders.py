@@ -40,8 +40,9 @@ def user_based_recommendations(user_id, n_recs) -> pd.DataFrame:
   # change to a set for faster lookup later
   set_user_rated_sorted = set(user_rated_sorted['gmap_id'])
 
-  # if the user_id is not in predicted_df
-  if user_id in df['user_id'].values:
+  # if the user_id is in predicted_df
+  if user_id in user_sim.keys():
+    print(f"{user_id} found in dataset")
 
     # get the top 50 most similar users
     similar_users_50 = user_sim.loc[user_id].sort_values(ascending=False)[1:51]
@@ -70,6 +71,7 @@ def user_based_recommendations(user_id, n_recs) -> pd.DataFrame:
     return n_favs
 
   else:
+    print(f"{user_id} not found — using popularity")
     popular = get_popular(n_recs, df)
 
     # name the columns and then resent index
