@@ -17,10 +17,9 @@ def main():
   print(f'Great, I will give you {n_recs} recommendations')
   print()
 
-  print("Which type of recommender would you like to use?")
-  print()
-  print("1. User-based - suggests places liked by other users with similar tastes.")
-  print("2. Item-based - suggests places similar to ones you have rated highly.")
+  print("""Which type of recommender would you like to use? \n
+        1. User-based - suggests places liked by other users with similar tastes.""")
+  print("\t 2. Item-based - suggests places similar to ones you have rated highly.")
   print("3. SVD-based - uses patterns in your past reviews to discover hidden preferences and suggest places that you might like.")
   print()
   type = str(input("Please enter 1, 2 or 3: "))
