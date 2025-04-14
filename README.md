@@ -81,8 +81,8 @@ My recommender function will first check if the a exists in the dataset, since I
 
   1. Identiy their top 50 most similar users, excluding themselves.
   2. For each similar user, retrieve their favorite businesses, where favorite is defined as having rated those businesses a 4 or higher.
-  3. Any businsses that the target user has already reviewed are not added to the list of favorites.
-  4. The list of favorties are combined together, where if multiple users rated the same business, their ratings are added together to represent aggregated popularity.
+  3. Any businesses that the target user has already reviewed are not added to the list of favorites.
+  4. The list of favorites are combined together, where if multiple users rated the same business, their ratings are added together to represent aggregated popularity.
   5. The favorites are then sorted by the highest aggregate ratings.
   6. The function will return the top n_rec number of businesses as the final recommendations.
 
@@ -99,7 +99,7 @@ Here is a breakdown of how the function works:
   2. For each one of the user's favorite places, the function retrieves similar businesses using the item-to-item cosine similarity matrix.
   3. If the user has not already rated them, then the businesses are added to a list of recommendations.
   4. The recommendations are then sorted by total similarity score and their average rating
-  5. Businesses with an average star rating of 3.5 are removed from the list.
+  5. Businesses with an average star rating of less than 3.5 are removed from the list.
   6. The top n_recs recommendations are taken from the top of the list.
 
 To handle the cold-start issue, if the user has no prior reviews, no favorite places (under 4 stars), or there are not enough qualifying recommendations using the above method, then the results are supplemented with a fallback list of popular businesses. Again, the popular businesses are determined by the number of reviews and their average rating. These popular businesses are added to the end of the list of recommendations to ensure that the user always receives the number of suggestions that they asked for. 
