@@ -49,11 +49,10 @@ The Utah original k-core subset has:
   - 34,689 unique businesses
   - No user has reviewed the same business more than once.
 
-The below histograms show the distribution of the number of reviews per user. Like many real world recommendation datasets, the dataset is sparse and display long-tail behavior. This occurs when most users interact with only a few item. However, I can confirm that the k-core threshold has been applied to the dataset.
-
 <img src="https://github.com/user-attachments/assets/f068eb5d-2ae2-4017-88ab-af66c8e47a7f" width="400">
 <img src="https://github.com/user-attachments/assets/1926edf5-6bf2-45cc-bb0f-0706253e8361" width="400">
 
+The above histograms show the distribution of the number of reviews per user. The left shows the entire range, while the right plot zooms up to 0-50 reviews. Like many real world recommendation datasets, the dataset is sparse and display long-tail behavior. This occurs when most users interact with only a few item. However, I can confirm that the k-core threshold has been applied to the dataset, as there is a cutoff left of 10 reviews per user, indicating that they were removed from the dataset.
 
 ### Data Subset
 
