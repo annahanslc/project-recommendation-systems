@@ -130,13 +130,16 @@ After 1-2 minutes, the programs outputs a list of recommendations.
 
 Below are screenshot from the application:
 
-1) Using option 1: user-based
+### Example 1) Using option 1: user-based
+
 ![Screenshot 2025-04-13 at 5 14 40 PM](https://github.com/user-attachments/assets/1efdcd98-5102-444d-bfb2-c9ca7d567086)
 
-2) Using option 2: item-based
+### Example 2) Using option 2: item-based
+
 ![Screenshot 2025-04-13 at 5 15 50 PM](https://github.com/user-attachments/assets/9dc7c627-ec81-488e-9edc-1b1361ea9959)
 
-3) Using option 3: SVD-based
+### Example 3) Using option 3: SVD-based
+
 ![Screenshot 2025-04-13 at 5 17 02 PM](https://github.com/user-attachments/assets/cae902be-d65c-4ac3-98be-2a699fa4d427)
 
 
