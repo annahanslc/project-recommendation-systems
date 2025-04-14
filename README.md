@@ -49,10 +49,8 @@ The Utah original k-core subset has:
   - 34,689 unique businesses
 No user has reviewed the same business more than once.
 
-![reviews_hist_all](https://github.com/user-attachments/assets/f068eb5d-2ae2-4017-88ab-af66c8e47a7f)
-
-![reviews_hist_0-50](https://github.com/user-attachments/assets/1926edf5-6bf2-45cc-bb0f-0706253e8361)
-
+<img src="https://github.com/user-attachments/assets/f068eb5d-2ae2-4017-88ab-af66c8e47a7f" width="400">
+<img src="https://github.com/user-attachments/assets/1926edf5-6bf2-45cc-bb0f-0706253e8361" width="400">
 
 
 ### Data Subset
