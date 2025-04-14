@@ -1,3 +1,6 @@
+<img width="1159" alt="Utah" src="https://github.com/user-attachments/assets/eca2424a-6adb-49ee-bb37-ed1d73d5e33e" />
+
+
 # Recommender System for Local Businesses
 
 Imagine you're deciding where to eat, get your haircut, or spend a free afternoon—and instead of endlessly scrolling through Google reviews or sifting through star ratings, you have a trusted friend who knows your tastes and recommends exactly the places you'd love.
@@ -162,18 +165,17 @@ For my next steps, I plan to add additional filtering and functionality to the a
 
 # References
 
+[Google Local Data (2021)](https://mcauleylab.ucsd.edu/public_datasets/gdrive/googlelocal/)
 
 UCTopic: Unsupervised Contrastive Learning for Phrase Representations and Topic Mining
 Jiacheng Li, Jingbo Shang, Julian McAuley
 Annual Meeting of the Association for Computational Linguistics (ACL), 2022
-
 [PDF](https://aclanthology.org/2022.acl-long.426.pdf)
 
 
 Personalized Showcases: Generating Multi-Modal Explanations for Recommendations
 An Yan, Zhankui He, Jiacheng Li, Tianyang Zhang, Julian Mcauley
 The 46th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), 2023
-
 [PDF](https://arxiv.org/pdf/2207.00422)
 
 
