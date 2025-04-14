@@ -167,13 +167,13 @@ UCTopic: Unsupervised Contrastive Learning for Phrase Representations and Topic 
 Jiacheng Li, Jingbo Shang, Julian McAuley
 Annual Meeting of the Association for Computational Linguistics (ACL), 2022
 
-[PDF]('https://aclanthology.org/2022.acl-long.426.pdf')
+[PDF](https://aclanthology.org/2022.acl-long.426.pdf)
 
 
 Personalized Showcases: Generating Multi-Modal Explanations for Recommendations
 An Yan, Zhankui He, Jiacheng Li, Tianyang Zhang, Julian Mcauley
 The 46th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), 2023
 
-[PDF]('https://arxiv.org/pdf/2207.00422')
+[PDF](https://arxiv.org/pdf/2207.00422)
 
 
