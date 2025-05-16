@@ -13,7 +13,7 @@ path_item_sim = '../data/subset_item_sim.parquet'
 
 # define a function for reading the data using a generator
 
-def parse(path):
+def parse_json(path):
   """
   Parses a gzipped JSON file line by line.
 
