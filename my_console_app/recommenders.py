@@ -19,11 +19,23 @@ path_svd_preds = '../data/svd_preds.parquet'
 
 def user_based_recommendations(user_id, n_recs) -> pd.DataFrame:
   """
-  Accepts the following parameters and returns a DataFrame containing n_recs recommendations.
-  This function uses user-based collaborative filtering to generate recommendations.s
+  Recommends n businesses to the user using on user-based collaborative filtering.
 
-  user_id = user_id
-  n_recs = the number of recommendations desired
+  If the user has prior reviews:
+    - Based on how the user reviewed businesses in the past, find the top 50 most similar other users.
+    - Loops over these 50 users to gather their favorite places and calculate the "total_rating" for each business.
+    - Aggregates the ratings for each business (excluding those the target user has already rated).
+    - Ranks businesses by total aggregated rating and returns the top n recommendations.
+
+  If the user has no reviews:
+    Fallback to the get_popular function to return the top n_recs most popular businesses as recommendations.
+
+  Args:
+    user_id (str): Google Map's review ID.
+    n_recs (int): Number of recommendations desired
+
+  Returns:
+    pd.DataFrame: DataFrame containing n businesses
   """
 
   # get the user similarities
@@ -93,11 +105,21 @@ def user_based_recommendations(user_id, n_recs) -> pd.DataFrame:
 
 def item_based_recommendations(user_id, n_recs) -> pd.DataFrame:
   """
-  Accepts the following parameters and returns a DataFrame containing n_recs recommendations.
-  This function uses item-based collaborative filtering to generate recommendations.s
+  Recommends places that are similar to places that the user liked before.
 
-  user_id = user_id
-  n_recs = the number of recommendations desired
+  If the user has favorite places based on prior ratings:
+    Uses the user's favorite places (user rated 4 stars or higher) to find other places
+    that are the most similar. Returns the top n_recs most similar places.
+
+  If the user has no favorite places:
+    Falls back to popularity-based recommendations and returns top n_recs recommendations.
+
+  Args:
+    user_id (str): Google Maps Reviewer ID.
+    n_recs (int) = Number of recommendations desired.
+
+  Returns:
+    pd.DataFrame: DataFrame with n_recs most similar businesses.
   """
   # get the item similarities
 
@@ -197,6 +219,23 @@ def item_based_recommendations(user_id, n_recs) -> pd.DataFrame:
 # the recommendations are the items with the highest predicted ratings
 
 def get_svd_recommendations(user_id, n_recs):
+  """
+  Uses SVD model to make n_recs recommendations for inputted user.
+
+  If user does not have prior reviews:
+    Make recommendations based the most popular places in the dataset.
+
+  If user has prior reviews:
+    Uses the SVD model to make recommendations.
+
+  Args:
+    user_id (str): Google Maps Reviewer ID.
+    n_recs (int): Desired number of recommendations.
+
+  Returns:
+    pd.DataFrame: DataFrame with n_recs recommendations.
+  """
+
   org_df = pd.read_parquet(path_reviews_subset)
   pred_df = pd.read_parquet(path_svd_preds)
 
@@ -216,7 +255,7 @@ def get_svd_recommendations(user_id, n_recs):
 
 
   else:
-    print('user has reviews')
+    print('User has reviews, will proceed to recommend using SVD model.')
     # get the list of what the user already rated
     user_rated_sorted = get_user_rated_sorted(user_id, org_df)
     num_rated = len(user_rated_sorted)

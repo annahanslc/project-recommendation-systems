@@ -5,6 +5,17 @@ from recommenders import *
 pd.set_option('display.max_columns', None)
 
 def main():
+  """
+  Main application function to launch the console-based Google Local Business Recommender.
+
+  Prompts the user for user ID, number of recommendations, and preferred recommendation method.
+  Displays results and optionally restarts based on user input.
+
+  Args: None
+  Returns: None
+  """
+
+
   print("Welcome to the Google Local Business Recommender!")
 
   user_id = str(input("What is the user id? "))
